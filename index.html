@@ -46770,9 +46770,14 @@
       const markerPosition = JSON.parse(
         localStorage.getItem("markerPosition") ?? "[0,0]"
       );
+
       const marker = document.getElementById("marker");
       marker.style.top = markerPosition[0] + "px";
       marker.style.left = markerPosition[1] + "px";
+      setTimeout(() => {
+      marker.scrollIntoView();
+
+      }, 1000)
       window.addEventListener("mousedown", (e) => {
         console.log(e.pageX, e.pageY);
         marker.style.top = e.pageY + "px";
